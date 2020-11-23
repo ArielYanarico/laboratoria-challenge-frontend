@@ -12,6 +12,24 @@ $warn-color: #ffbb00;
 $error-color: #00b000;
 $success-color: #f00000;
 
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input {
+    padding: 20px;
+    border: 2px solid $dark-highlight;
+    border-radius: $button-radius;
+    font-size: large;
+
+    &:focus {
+      outline-offset: 0px;
+      outline: -webkit-focus-ring-color auto 0px;
+    }
+  }
+}
+
 // Import external styles
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;531;600;700;800;900&display=swap');

@@ -1,5 +1,5 @@
 .button {
-  padding: 20px 50px;
+  padding: 10px 25px;
   border-radius: $button-radius;
   background-color: rgba( $dark-highlight, .1 );
   margin: 14px;
@@ -8,6 +8,7 @@
   border: 2px solid $dark-highlight;
   overflow: hidden;
   text-decoration: none;
+  cursor: pointer;
 
   // Button animation
   -webkit-transition: all 0.3s ease-in-out;
