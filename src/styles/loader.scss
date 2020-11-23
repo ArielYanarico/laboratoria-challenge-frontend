@@ -1,0 +1,38 @@
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  margin-left: 10%;
+  transform: translate3d(-50%, -50%, 0);
+
+  .dot {
+    width: 24px;
+    height: 24px;
+    background: $dark-highlight;
+    border-radius: 100%;
+    display: inline-block;
+    animation: slide 1s infinite;
+
+    // Dot colors
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        animation-delay: (.1s * $i);
+        background: lighten($dark-highlight, $i * 10%);
+      }
+    }
+  }
+}
+
+// Animation for dots
+@keyframes slide {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

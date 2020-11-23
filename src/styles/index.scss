@@ -1,0 +1,23 @@
+// Size variables
+$content-width: 99%;
+$breakpoint: 799px;
+$nav-height: 70px;
+$button-radius: 16px;
+
+// Color variables
+$dark-highlight: #262626;
+$light-highlight: #ffffff;
+$link-hover-color: #353535;
+$warn-color: #ffbb00;
+$error-color: #00b000;
+$success-color: #f00000;
+
+// Import external styles
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;531;600;700;800;900&display=swap');
+
+// Import component scss styles
+@import 'common.scss';
+@import 'navBar.scss';
+@import 'loader.scss';
+@import 'button.scss';

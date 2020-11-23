@@ -1,0 +1,40 @@
+.button {
+  padding: 20px 50px;
+  border-radius: $button-radius;
+  background-color: rgba( $dark-highlight, .1 );
+  margin: 14px;
+  position: relative;
+  color: $dark-highlight;
+  border: 2px solid $dark-highlight;
+  overflow: hidden;
+  text-decoration: none;
+
+  // Button animation
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
+  // before: Pesudo selector style for button animation
+  &:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: $dark-highlight;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    color: $light-highlight;
+
+    // Trigger the transition animation
+    &:before {
+      left: 0;
+    }
+  }
+}
