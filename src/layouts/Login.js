@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import Cookies from 'js-cookie';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -8,7 +9,7 @@ import withRequestStatus from '../components/withRequestStatus';
 
 const Login = () => {
   const usernameRef = useRef(null);
-  const session = useSelector(state => state.session);
+  const session = useSelector(state => state.session) || Cookies.get('session');
   const dispatch = useDispatch();
 
   if (session) return <Redirect to='/' />;

@@ -1,9 +1,10 @@
 import React from 'react';
+import Cookies from 'js-cookie';
 import { Redirect } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const session = useSelector(state => state.session);
+  const session = useSelector(state => state.session) || Cookies.get('session');
 
   if (!session) return <Redirect to='/login' />;
 

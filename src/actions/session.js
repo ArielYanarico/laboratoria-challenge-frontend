@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 import { isLoading, hasErrored } from './requestStatus';
 
 export const UPDATE_SESSION = 'UPDATE_SESSION';
@@ -32,8 +34,11 @@ export function requestSession(url, method = 'GET', body) {
 
       switch (settings.method) {
         case "GET":
-          if (item)
-            dispatch(updateSession(item.username));
+          if (item) {
+            // Cookie valid for 15 minutes (100/96 days)
+            Cookies.set('session', item._id, 100/96);
+            dispatch(updateSession(item._id));
+          }
           break;
         case "POST":
         case "PUT":
