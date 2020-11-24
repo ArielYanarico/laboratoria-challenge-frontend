@@ -9,6 +9,8 @@
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
+  font-family: $main-font;
+  font-size: 14px;
 
   // Button animation
   -webkit-transition: all 0.3s ease-in-out;

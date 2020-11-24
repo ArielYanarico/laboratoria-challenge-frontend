@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { requestSession } from '../actions/session';
@@ -15,16 +15,17 @@ const Login = () => {
 
   const handleLogin = () => {
     dispatch(requestSession(`/users/${usernameRef.current.value}`));
+    return <Redirect to='/' />
   };
 
   return (
     <section className='main-section'>
-      <div className='heading main tiny-padding'>
+      <div className='heading main'>
         User Login
       </div>
-      <form className='form'>
+      <form className='form' onSubmit={handleLogin}>
         <input type='text' placeholder='Username' ref={usernameRef} />
-        <Link className='button' to='/' onClick={handleLogin}>Go</Link>
+        <button type='submit' className='button'>Submit</button>
       </form>
     </section>
   );

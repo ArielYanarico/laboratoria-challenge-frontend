@@ -22,7 +22,6 @@ export function requestSession(url, method = 'GET', body) {
     };
 
     try {
-      console.log(process.env)
       const response = await fetch(`${process.env.REACT_APP_API_URL}${url}`, settings);
 
       if (!response.ok) throw Error(response.statusText);
