@@ -3,6 +3,7 @@ import { isLoading, hasErrored } from './requestStatus';
 export const GET_POSTS = 'GET_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
+export const UPDATE_POST = 'UPDATE_POST';
 
 export function getPosts(posts) {
   return {
@@ -22,6 +23,13 @@ export function deletePost(postId) {
   return {
     type: DELETE_POST,
     postId
+  };
+}
+
+export function updatePost(post) {
+  return {
+    type: UPDATE_POST,
+    post
   };
 }
 
@@ -57,6 +65,8 @@ export function requestPost(url, method = 'GET', body) {
           if (item) dispatch(deletePost(item._id));
           break;
         case "PUT":
+          if (item) dispatch(updatePost(item));
+          break;
         default:
           console.warn('Method not allowed or unkonwn');
       }
