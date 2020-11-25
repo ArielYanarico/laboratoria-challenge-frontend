@@ -40,4 +40,15 @@
       left: 0;
     }
   }
+
+  &.no-highlight {
+    &:hover {
+      color: $dark-highlight !important;
+  
+      // Dont Trigger the transition animation
+      &:before {
+        left: -100%;
+      }
+    }
+  }
 }
