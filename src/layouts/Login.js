@@ -14,7 +14,8 @@ const Login = () => {
 
   if (session) return <Redirect to='/' />;
 
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
     dispatch(requestSession(`/users/${usernameRef.current.value}`));
     return <Redirect to='/' />
   };

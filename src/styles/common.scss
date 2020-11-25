@@ -52,15 +52,15 @@ html {
     resize: none;
     font-family: $main-font;
   }
+}
 
-  .button-group {
-    display: flex;
-    justify-content: flex-end;
-	  align-items: flex-end;
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 
-    .button {
-      margin-left: 5px;
-    }
+  .button {
+    margin-left: 5px;
   }
 }
 

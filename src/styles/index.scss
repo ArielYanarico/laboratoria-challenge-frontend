@@ -33,6 +33,18 @@ $main-font: 'Raleway', sans-serif;
   }
 }
 
+.modal {
+  position: absolute;
+  top: 38%;
+  left: 20%;
+  right: 20%;
+  height: 200px;
+
+  border: 2px solid $dark-highlight;
+  border-radius: $button-radius;
+  background-color: $light-highlight;
+}
+
 // Import external styles
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;531;600;700;800;900&display=swap');
