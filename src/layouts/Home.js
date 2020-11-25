@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 
+import { removeSession } from '../actions/session';
 import ConfirmModal from '../components/ConfirmModal';
 import PostCard from '../components/PostCard';
 import { requestPost } from '../actions/post';
@@ -16,6 +17,10 @@ const Home = () => {
   const dispatch = useDispatch();
 
   if (!session) return <Redirect to='/login' />;
+
+  const handleLogout = () => {
+    dispatch(removeSession());
+  };
 
   const handleAddPost = (event) => {
     event.preventDefault();
@@ -38,8 +43,11 @@ const Home = () => {
 
   return (
     <section className='main-section'>
-      <div className='heading second'>You could post anything you want here</div>
-
+      <div className='header'>
+        <div className='heading second'>You could post whatever you want here</div>
+        <div className='button' onClick={handleLogout}>Logout</div>
+      </div>
+      
       <form className='post-card' onSubmit={handleAddPost} >
         <textarea rows={2} placeholder='¿Qué está pasando?' ref={textRef} />
         <div className='button-group'>
@@ -57,7 +65,6 @@ const Home = () => {
       ))}
 
       <ConfirmModal ref={confirmModal} onConfirm={handleDelete} />
-
     </section>
   );
 }

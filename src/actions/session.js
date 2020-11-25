@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import { isLoading, hasErrored } from './requestStatus';
 
 export const UPDATE_SESSION = 'UPDATE_SESSION';
+export const REMOVE_SESSION = 'REMOVE_SESSION';
 
 export function updateSession(session) {
   return {
@@ -11,6 +12,14 @@ export function updateSession(session) {
   };
 }
 
+export function removeSession() {
+  Cookies.remove('session');
+  return {
+    type: REMOVE_SESSION,
+  };
+}
+
+// TODO: As it is similiar to "requestPost" function, I need to refactor this function
 export function requestSession(url, method = 'GET', body) {
   return async (dispatch) => {
     dispatch(isLoading(true));
@@ -35,8 +44,8 @@ export function requestSession(url, method = 'GET', body) {
       switch (settings.method) {
         case "GET":
           if (item) {
-            // Cookie valid for 15 minutes (100/96 days)
-            Cookies.set('session', item._id, 100/96);
+            // Cookie valid for 30 minutes (100/48 days)
+            Cookies.set('session', item._id, 100/48);
             dispatch(updateSession(item._id));
           }
           break;
