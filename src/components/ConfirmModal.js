@@ -19,8 +19,8 @@ const ConfirmModal = forwardRef(({onConfirm}, ref) => {
     <Modal isOpen={isActive} onRequestClose={close} className='modal' ariaHideApp={false}>
       <div className='heading third'>Are you sure?</div>
       <div className='button-group'>
-        <div className='button' onClick={handleConfirm}>Yes</div>
-        <div className='button' onClick={close}>No</div>
+        <div className='button no-highlight' onClick={handleConfirm}>Yes</div>
+        <div className='button no-highlight' onClick={close}>No</div>
       </div>
     </Modal>
   )

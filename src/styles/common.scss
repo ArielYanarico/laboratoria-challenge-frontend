@@ -101,6 +101,10 @@ html {
   background-color: $light-highlight;
 }
 
+.hidden {
+  display: none;
+}
+
 /*Fix for edge focus outline*/
 input, textarea {
   &:focus {

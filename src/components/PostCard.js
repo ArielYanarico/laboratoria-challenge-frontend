@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PostCard = ({post, confirmModal, onEdit}) => {
+const PostCard = ({post, confirmModal, onEdit, user}) => {
   const [editMode, setEditMode] = useState(false);
   const [text, setText] = useState(post.text);
 
@@ -22,6 +22,8 @@ const PostCard = ({post, confirmModal, onEdit}) => {
     toggleEditMode();
   }
 
+  const buttonsVisibility = user !== post.user;
+
   return (
     <React.Fragment>
       <div className='post-card'>
@@ -29,7 +31,7 @@ const PostCard = ({post, confirmModal, onEdit}) => {
           ? <textarea rows={2} value={text} onChange={handleChangeText} />
           : <span>{post.text}</span>
         }
-        <div className='button-group'>
+        <div className={`button-group ${buttonsVisibility ? 'hidden': ''}`}>
           {editMode
             ? <div className='button' onClick={handleAccept}>Guardar</div>
             : <div className='button' onClick={toggleEditMode} >Editar</div>
