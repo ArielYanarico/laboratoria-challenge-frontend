@@ -31,12 +31,12 @@ const PostCard = ({post, confirmModal, onEdit}) => {
         }
         <div className='button-group'>
           {editMode
-            ? <div className='button' onClick={handleAccept}>Aceptar</div>
+            ? <div className='button' onClick={handleAccept}>Guardar</div>
             : <div className='button' onClick={toggleEditMode} >Editar</div>
           }
           {editMode
             ? <div className='button' onClick={toggleEditMode} >Cancelar</div>
-            : <div className='button' onClick={handleDeleteClick} >Borrar</div>
+            : <div className='button' onClick={handleDeleteClick} >Eliminar</div>
           }
         </div>
       </div>
