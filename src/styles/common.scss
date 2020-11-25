@@ -33,11 +33,35 @@ html {
 .post-card {
   border: 2px solid $dark-highlight;
   border-radius: $button-radius;
-  max-width: 80%;
-  min-height: 180px;
+  width: 80%;
+  margin-bottom: 10px;
+
   display: flex;
-  justify-content: center;
-	align-items: center;
+  flex-direction: column;
+  
+  span {
+    margin: 18px;
+    font-size: large;
+  }
+
+  textarea {
+    padding: 18px;
+    border: 0px;
+    border-radius: $button-radius;
+    font-size: large;
+    resize: none;
+    font-family: $main-font;
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  .button {
+    margin-left: 5px;
+  }
 }
 
 .tiny-padding {

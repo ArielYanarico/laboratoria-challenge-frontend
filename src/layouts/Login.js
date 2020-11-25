@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { requestSession } from '../actions/session';
@@ -8,23 +9,25 @@ import withRequestStatus from '../components/withRequestStatus';
 
 const Login = () => {
   const usernameRef = useRef(null);
-  const session = useSelector(state => state.session);
+  const session = useSelector(state => state.session) || Cookies.get('session');
   const dispatch = useDispatch();
 
   if (session) return <Redirect to='/' />;
 
-  const handleLogin = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
     dispatch(requestSession(`/users/${usernameRef.current.value}`));
+    return <Redirect to='/' />
   };
 
   return (
     <section className='main-section'>
-      <div className='heading main tiny-padding'>
+      <div className='heading main'>
         User Login
       </div>
-      <form className='form'>
+      <form className='form' onSubmit={handleLogin}>
         <input type='text' placeholder='Username' ref={usernameRef} />
-        <Link className='button' to='/' onClick={handleLogin}>Go</Link>
+        <button type='submit' className='button'>Submit</button>
       </form>
     </section>
   );

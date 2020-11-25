@@ -12,12 +12,15 @@ $warn-color: #ffbb00;
 $error-color: #00b000;
 $success-color: #f00000;
 
+// Font variables
+$main-font: 'Raleway', sans-serif;
+
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  input {
+  input[type='text'] {
     padding: 20px;
     border: 2px solid $dark-highlight;
     border-radius: $button-radius;
@@ -28,6 +31,18 @@ $success-color: #f00000;
       outline: -webkit-focus-ring-color auto 0px;
     }
   }
+}
+
+.modal {
+  position: absolute;
+  top: 38%;
+  left: 20%;
+  right: 20%;
+  height: 200px;
+
+  border: 2px solid $dark-highlight;
+  border-radius: $button-radius;
+  background-color: $light-highlight;
 }
 
 // Import external styles
